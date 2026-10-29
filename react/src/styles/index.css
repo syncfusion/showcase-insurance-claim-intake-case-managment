@@ -1,0 +1,946 @@
+/* Token baseline for Insurance Claims Portal (light + dark).
+   Mirror of factory/standards/bds-sales-crm.tokens.css v1.4.0 (primitive -> semantic -> component).
+   Vite inlines the token definitions into the built CSS, so the dist/ build carries them.
+   Syncfusion theme CSS is loaded via <link id="syncfusion-theme"> in index.html (CDN). */
+@layer base {
+  button:not(:disabled), [role="button"], a[href], summary, label[for] {
+    cursor: pointer;
+  }
+  :root {
+    font-family: var(--sf-font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  html, body, #root { min-height: 100%; }
+  body {
+    font-feature-settings: 'cv11', 'ss01', 'ss03';
+    letter-spacing: -0.005em;
+  }
+  /* Premium SaaS headings: tighter tracking on every size; crisp line heights */
+  h1, h2, h3, h4, h5, h6 { letter-spacing: -0.02em; font-weight: 600; }
+  h1 { font-size: 24px; line-height: 1.25; }
+  h2 { font-size: 20px; line-height: 1.3; }
+  h3 { font-size: 18px; line-height: 1.35; }
+  h4 { font-size: 16px; line-height: 1.4; }
+  /* The Syncfusion theme gives e-card-content <p> a 20px line-height that clips large values; force
+     headings and KPI value lines to render as block elements with their own line heights. */
+  .e-card-content > p, .e-card-content p { line-height: inherit; }
+}
+
+/* Primitive + semantic + component tokens (BDS/Sales CRM baseline v1.4.0) */
+:root {
+  /* Primitive: color */
+  --sf-color-white: #ffffff;
+  --sf-color-slate-25: #f8fafc;
+  --sf-color-slate-50: #f6f8fb;
+  --sf-color-slate-100: #eef2f6;
+  --sf-color-slate-200: #e5e9f0;
+  --sf-color-slate-300: #d0d5dd;
+  --sf-color-slate-400: #98a2b3;
+  --sf-color-slate-500: #667085;
+  --sf-color-slate-600: #475467;
+  --sf-color-slate-700: #344054;
+  --sf-color-slate-900: #0f172a;
+  --sf-color-blue-50: #eef4ff;
+  --sf-color-blue-100: #d6e4ff;
+  --sf-color-blue-200: #b1cdff;
+  --sf-color-blue-500: #2e7eff;
+  --sf-color-blue-600: #175cd3;
+  --sf-color-blue-700: #1849a9;
+  --sf-color-green-50: #ecfdf3;
+  --sf-color-green-600: #027a48;
+  --sf-color-amber-50: #fffaeb;
+  --sf-color-amber-600: #b54708;
+  --sf-color-red-50: #fef3f2;
+  --sf-color-red-600: #b42318;
+  /* Primitive: chart category colours */
+  --sf-color-chart-blue: #3b82f6;
+  --sf-color-chart-teal: #0d9488;
+  --sf-color-chart-fuchsia: #a21caf;
+  --sf-color-chart-slate: #334155;
+  --sf-color-chart-sky: #0369a1;
+  --sf-color-chart-cyan: #0891b2;
+  --sf-color-chart-purple: #a855f7;
+  --sf-color-chart-indigo: #4f46e5;
+
+  /* Primitive: spacing, radius, elevation, typography */
+  --sf-space-1: 4px; --sf-space-2: 8px; --sf-space-3: 12px;
+  --sf-space-4: 16px; --sf-space-5: 20px; --sf-space-6: 24px;
+  --sf-space-7: 32px; --sf-space-8: 40px;
+  --sf-radius-xs: 4px; --sf-radius-sm: 6px; --sf-radius-md: 8px;
+  --sf-radius-lg: 10px; --sf-radius-xl: 14px;
+  --sf-size-kpi-icon: 36px;
+  --sf-size-kpi-min-height: 132px;
+  --sf-space-filter-gap: 24px;
+  --sf-size-field-period: 230px; --sf-size-field-select: 200px; --sf-size-field-wide: 320px;
+  --sf-radius-pill: 999px;
+  --sf-font-sans: Inter, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Roboto, sans-serif;
+  --sf-shadow-sm: 0 1px 2px rgb(15 23 42 / 4%), 0 1px 3px rgb(15 23 42 / 6%);
+  --sf-shadow-md: 0 4px 12px -2px rgb(15 23 42 / 6%), 0 2px 4px -2px rgb(15 23 42 / 4%);
+  --sf-shadow-focus: 0 0 0 2px var(--color-sf-bg-surface), 0 0 0 4px var(--color-sf-fg-brand-primary);
+
+  /* Semantic: light */
+  --color-sf-bg-primary: var(--sf-color-slate-50);
+  --color-sf-bg-surface: var(--sf-color-white);
+  --color-sf-bg-surface-muted: var(--sf-color-slate-25);
+  --color-sf-bg-surface-elevated: var(--sf-color-white);
+  --color-sf-bg-surface-hover: var(--sf-color-blue-50);
+  --color-sf-fg-primary: var(--sf-color-slate-900);
+  --color-sf-fg-secondary: var(--sf-color-slate-500);
+  --color-sf-fg-tertiary: var(--sf-color-slate-400);
+  --color-sf-border-primary: var(--sf-color-slate-200);
+  --color-sf-border-secondary: var(--sf-color-slate-100);
+  --color-sf-border-strong: var(--sf-color-slate-300);
+  --color-sf-fg-brand-primary: var(--sf-color-blue-600);
+  --color-sf-bg-brand-subtle: var(--sf-color-blue-50);
+  --color-sf-border-brand: var(--sf-color-blue-100);
+  --color-sf-bg-success-primary: var(--sf-color-green-50);
+  --color-sf-fg-success-primary: var(--sf-color-green-600);
+  --color-sf-bg-warning-primary: var(--sf-color-amber-50);
+  --color-sf-fg-warning-primary: var(--sf-color-amber-600);
+  --color-sf-bg-danger-primary: var(--sf-color-red-50);
+  --color-sf-fg-danger-primary: var(--sf-color-red-600);
+  --color-sf-bg-info-primary: var(--sf-color-blue-50);
+  --color-sf-fg-info-primary: var(--sf-color-blue-600);
+  --color-sf-bg-neutral-primary: var(--sf-color-slate-100);
+  --color-sf-fg-neutral-primary: var(--sf-color-slate-500);
+  --color-sf-chart-series-1: var(--sf-color-chart-blue);
+  --color-sf-chart-series-2: var(--sf-color-chart-teal);
+  --color-sf-chart-series-3: var(--sf-color-chart-fuchsia);
+  --color-sf-chart-series-4: var(--sf-color-chart-slate);
+  --color-sf-chart-series-5: var(--sf-color-chart-sky);
+  --color-sf-chart-series-6: var(--sf-color-chart-cyan);
+  --color-sf-chart-series-7: var(--sf-color-chart-purple);
+  --color-sf-chart-series-8: var(--sf-color-chart-indigo);
+  --color-sf-chart-reference: var(--sf-color-slate-500);
+  --color-sf-focus-ring: var(--sf-color-blue-600);
+
+  /* Component */
+  --app-shell-bg: var(--color-sf-bg-primary);
+  --app-card-bg: var(--color-sf-bg-surface);
+  --app-card-bg-muted: var(--color-sf-bg-surface-muted);
+  --app-card-border: var(--color-sf-border-primary);
+  --app-card-shadow: var(--sf-shadow-sm);
+  --app-nav-active-bg: var(--color-sf-bg-brand-subtle);
+  --app-nav-active-fg: var(--color-sf-fg-brand-primary);
+  --app-kpi-bg: var(--color-sf-bg-surface);
+  --app-kpi-content-inset-inline: var(--sf-space-5);
+  --app-kpi-content-inset-block: var(--sf-space-5);
+  --app-kpi-min-height: var(--sf-size-kpi-min-height);
+  --app-kpi-icon-size: var(--sf-size-kpi-icon);
+  --app-kpi-icon-inset-inline: var(--sf-space-5);
+  --app-kpi-icon-title-offset: calc(var(--sf-space-5) + 2px);
+  --app-kpi-icon-bg: var(--color-sf-bg-success-primary);
+  --app-kpi-icon-fg: var(--color-sf-fg-success-primary);
+  --app-kpi-focus-ring: var(--color-sf-focus-ring);
+  --app-focus-ring: var(--color-sf-focus-ring);
+  --app-filter-gap: var(--sf-space-filter-gap);
+  --app-filter-field-period: var(--sf-size-field-period);
+  --app-filter-field-select: var(--sf-size-field-select);
+  --app-filter-field-wide: var(--sf-size-field-wide);
+  --app-filter-chip-radius: var(--sf-radius-pill);
+  --app-filter-chip-bg: var(--color-sf-bg-brand-subtle);
+  --app-filter-chip-fg: var(--color-sf-fg-brand-primary);
+  --app-filter-chip-border: var(--color-sf-border-brand);
+  --app-filter-reset-fg: var(--color-sf-fg-brand-primary);
+  --app-filter-reset-border: var(--color-sf-border-brand);
+}
+
+:root[data-theme="dark"] {
+  --sf-color-white: #0b0f19;
+  --sf-color-slate-25: #0f172a;
+  --sf-color-slate-50: #020617;
+  --sf-color-slate-100: #111a2e;
+  --sf-color-slate-200: #1f2a44;
+  --sf-color-slate-300: #2c3a5a;
+  --sf-color-slate-400: #62748b;
+  --sf-color-slate-500: #94a3b8;
+  --sf-color-slate-600: #cbd5e1;
+  --sf-color-slate-700: #e2e8f0;
+  --sf-color-slate-900: #f8fafc;
+  --sf-color-blue-50: #142554;
+  --sf-color-blue-100: #1e3a8a;
+  --sf-color-blue-200: #2563eb;
+  --sf-color-blue-500: #60a5fa;
+  --sf-color-blue-600: #93c5fd;
+  --sf-color-blue-700: #bfdbfe;
+  --sf-color-green-50: #052e1b;
+  --sf-color-green-600: #86efac;
+  --sf-color-amber-50: #451a03;
+  --sf-color-amber-600: #fbbf24;
+  --sf-color-red-50: #450a0a;
+  --sf-color-red-600: #fca5a5;
+  --sf-color-chart-blue: #3b82f6;
+  --sf-color-chart-teal: #2dd4bf;
+  --sf-color-chart-fuchsia: #e879f9;
+  --sf-color-chart-slate: #94a3b8;
+  --sf-color-chart-sky: #0ea5e9;
+  --sf-color-chart-cyan: #22d3ee;
+  --sf-color-chart-purple: #a855f7;
+  --sf-color-chart-indigo: #6366f1;
+  --sf-shadow-sm: 0 1px 2px rgb(0 0 0 / 35%), 0 1px 3px rgb(0 0 0 / 25%);
+  --sf-shadow-md: 0 4px 12px -2px rgb(0 0 0 / 35%), 0 2px 4px -2px rgb(0 0 0 / 25%);
+}
+
+/* Syncfusion primary color override: brand blue */
+:root {
+  --color-sf-primary: #175cd3;
+  --color-sf-primary-hover: #1554c0;
+}
+:root[data-theme="dark"] {
+  --color-sf-primary: #93c5fd;
+  --color-sf-primary-hover: #60a5fa;
+}
+
+/* Primary buttons: sharp text, layered surface with crisp top border for depth, with :hover, :focus-visible,
+   and :active states. The Syncfusion theme uses :before for a top ring; layer it for enterprise polish. */
+.e-btn.e-primary {
+  font-weight: 600;
+  letter-spacing: -0.005em;
+  padding: 8px 14px;
+  border-radius: var(--sf-radius-md);
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 12%), 0 1px 1px rgb(15 23 42 / 6%);
+  transition: background-color 120ms ease, box-shadow 120ms ease, transform 80ms ease;
+}
+.e-btn.e-primary:active { transform: translateY(0.5px); }
+.e-btn:not(.e-primary) {
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  padding: 7px 14px;
+  border-radius: var(--sf-radius-md);
+  transition: background-color 120ms ease, border-color 120ms ease, color 120ms ease;
+}
+
+/* Syncfusion card overrides: clean enterprise surface with subtle elevation, tighter header padding, and a
+   reserved alignment track so the title, subtitle and value line up across every card. */
+.e-card {
+  background: var(--app-card-bg) !important;
+  border: 1px solid var(--app-card-border) !important;
+  border-radius: var(--sf-radius-lg) !important;
+  box-shadow: var(--app-card-shadow) !important;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+.e-card .e-card-header {
+  padding: var(--sf-space-5) var(--sf-space-6);
+  border-bottom: 1px solid var(--color-sf-border-secondary);
+  min-height: 56px;
+}
+.e-card .e-card-header .e-card-header-caption {
+  padding: 0;
+}
+.e-card .e-card-header .e-card-header-title {
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.3;
+  letter-spacing: -0.01em;
+}
+.e-card .e-card-header .e-card-sub-title {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.3;
+  padding-top: 2px;
+  color: var(--color-sf-fg-secondary);
+}
+.e-card .e-card-content {
+  padding: var(--sf-space-6);
+}
+.e-card .e-card-content > p,
+.e-card .e-card-content p {
+  line-height: 1.55;
+  margin: 0;
+}
+/* Display-only cards (KPI, summary panels) keep their surface under hover; the theme's hover swap looks
+   like an interactive control when the card is not clickable. */
+.e-card:not(.e-card-clickable):hover,
+.e-card:not(.e-card-clickable):active,
+.e-card:not(.e-card-clickable):focus {
+  background: var(--app-card-bg) !important;
+  border-color: var(--app-card-border) !important;
+  box-shadow: var(--app-card-shadow) !important;
+}
+
+/* Loading indicator (inline styles in index.html duplicate these for the startup frame) */
+.app-loading {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  gap: 14px; padding: 48px; color: var(--color-sf-fg-secondary); font-size: 14px;
+  letter-spacing: -0.005em;
+}
+.app-loading--overlay {
+  position: absolute; inset: 0; background: var(--color-sf-bg-surface);
+  z-index: 10; border-radius: var(--sf-radius-lg);
+}
+.app-loading__ring {
+  width: 32px; height: 32px; border: 2.5px solid var(--color-sf-border-primary);
+  border-top-color: var(--color-sf-fg-brand-primary); border-radius: 50%;
+  animation: app-loading-spin 0.8s linear infinite;
+}
+@keyframes app-loading-spin { to { transform: rotate(360deg); } }
+@media (prefers-reduced-motion: reduce) {
+  .app-loading__ring { animation: none; border-top-color: var(--color-sf-border-primary); }
+}
+
+/* ============================================================
+   Dashboard layout — strict alignment, generous deliberate space
+   ============================================================ */
+.dashboard-page {
+  /* A flex column, not a grid: the sections below are grid containers of their own, and a grid
+     parent would apply their `grid-column: span N` to the wrong tracks. */
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.dashboard-page > .dashboard-grid:last-child { padding-bottom: 4px; }
+
+.dashboard-grid {
+  display: grid;
+  /* `minmax(0, 1fr)` keeps a wide control from forcing its track wider than the share it owns. */
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 20px;
+}
+.dashboard-grid__kpi { grid-column: span 3; }
+.dashboard-grid__span6 { grid-column: span 6; }
+.dashboard-grid__span12 { grid-column: span 12; }
+@media (max-width: 1199px) {
+  .dashboard-grid__kpi { grid-column: span 6; }
+  .dashboard-grid__span6 { grid-column: span 12; }
+}
+@media (max-width: 719px) {
+  .dashboard-grid__kpi { grid-column: span 12; }
+}
+
+/* ============================================================
+   Chart / map slots — the Syncfusion theme's `.e-card > *` rule centres its children
+   (`.e-card > * { justify-content: center }`), so a measured slot inside `e-card-content`
+   would shrink to its content instead of filling the card. The slot stretches to the
+   content box, and the chart is drawn at exactly that width
+   (syncfusion-component-patterns.md, "Charts in a measured container").
+   ============================================================ */
+.chart-slot,
+.map-slot {
+  width: 100%;
+  align-self: stretch;
+  justify-self: stretch;
+  min-width: 0;
+}
+
+/* ============================================================
+   KPI card (Syncfusion e-card + dense Sales-CRM layout)
+   ============================================================ */
+.app-kpi {
+  min-height: var(--app-kpi-min-height);
+  background: var(--app-kpi-bg);
+  border: 1px solid var(--app-card-border);
+  border-radius: var(--sf-radius-lg);
+  box-shadow: var(--app-card-shadow);
+  display: flex;
+  flex-direction: column;
+  /* The Syncfusion .e-card base sets justify-content: center; without this reset every card's
+     content block is vertically centred, so labels sit at different heights per card. */
+  justify-content: flex-start;
+  padding: var(--app-kpi-content-inset-block) var(--app-kpi-content-inset-inline);
+  position: relative;
+  overflow: hidden;
+  transition: border-color 160ms ease, box-shadow 160ms ease, transform 160ms ease;
+}
+.app-kpi::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  border-radius: inherit;
+  border-top: 1px solid rgb(255 255 255 / 60%);
+}
+:root[data-theme="dark"] .app-kpi::before { border-top-color: rgb(255 255 255 / 4%); }
+.app-kpi__header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 12px;
+}
+.app-kpi__label {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--color-sf-fg-secondary);
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+  /* The label's first line and the icon share a baseline track, so the icon never floats
+     above the title (design-system.md, "Syncfusion KPI Card pattern"). */
+  padding-top: 8px;
+}
+.app-kpi__icon {
+  flex: 0 0 var(--app-kpi-icon-size);
+  width: var(--app-kpi-icon-size);
+  height: var(--app-kpi-icon-size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--sf-radius-md);
+  border: 1px solid rgb(15 23 42 / 4%);
+}
+:root[data-theme="dark"] .app-kpi__icon { border-color: rgb(255 255 255 / 6%); }
+.app-kpi__value {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1.2;
+  margin-top: 10px;
+  color: var(--color-sf-fg-primary);
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+  font-feature-settings: 'tnum' 1, 'cv11' 1;
+}
+.app-kpi__delta {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-top: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  line-height: 1.3;
+  white-space: nowrap;
+}
+/* The delta and note are separate rows so a long label never squeezes or wraps the note into
+   a ragged multi-line block beside it (the misalignment seen on the dashboard). */
+.app-kpi__footnote {
+  display: flex;
+  align-items: baseline;
+  gap: 6px;
+  margin-top: 4px;
+  min-width: 0;
+}
+.app-kpi__footnote .app-kpi__delta { margin-top: 0; }
+.app-kpi__delta--success { color: var(--color-sf-fg-success-primary); }
+.app-kpi__delta--warning { color: var(--color-sf-fg-warning-primary); }
+.app-kpi__delta--danger  { color: var(--color-sf-fg-danger-primary); }
+.app-kpi__delta--neutral { color: var(--color-sf-fg-secondary); }
+.app-kpi__note {
+  font-size: 12px;
+  color: var(--color-sf-fg-secondary);
+  margin-top: 0;
+  line-height: 1.35;
+  letter-spacing: -0.003em;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ============================================================
+   Filter bar — compact, aligned, enterprise-feel
+   ============================================================ */
+.filter-bar {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  gap: var(--app-filter-gap, 24px);
+  padding: 4px 0 0;
+}
+.filter-bar__field {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.filter-bar__label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-sf-fg-secondary);
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  line-height: 1.2;
+}
+
+/* ============================================================
+   Status / priority badges — refined surfaces
+   ============================================================ */
+.badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 2px 8px;
+  border-radius: var(--sf-radius-sm);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 1.35;
+  letter-spacing: -0.005em;
+  white-space: nowrap;
+  border: 1px solid transparent;
+}
+.badge--dot { width: 6px; height: 6px; border-radius: 50%; flex-shrink: 0; }
+/* Tone modifiers — keyed off the semantic palette tokens so light/dark stay in sync
+   and the modifier name is reusable across Kanban cards, Grid cells, detail headers,
+   and filter chips (no Tailwind arbitrary-value utilities needed). */
+.badge--success { background: var(--color-sf-bg-success-primary); color: var(--color-sf-fg-success-primary); }
+.badge--warning { background: var(--color-sf-bg-warning-primary); color: var(--color-sf-fg-warning-primary); }
+.badge--danger  { background: var(--color-sf-bg-danger-primary);  color: var(--color-sf-fg-danger-primary); }
+.badge--info    { background: var(--color-sf-bg-info-primary);    color: var(--color-sf-fg-info-primary); }
+.badge--neutral { background: var(--color-sf-bg-neutral-primary); color: var(--color-sf-fg-neutral-primary); }
+
+/* ============================================================
+   Claim detail form card
+   ============================================================ */
+.form-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+@media (max-width: 639px) { .form-grid { grid-template-columns: 1fr; } }
+.form-grid__span2 { grid-column: span 2; }
+@media (max-width: 639px) { .form-grid__span2 { grid-column: span 1; } }
+.form-field { display: flex; flex-direction: column; gap: 6px; }
+.form-field label {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--color-sf-fg-secondary);
+  letter-spacing: 0.01em;
+  line-height: 1.25;
+}
+
+/* ============================================================
+   Generated-document status (signed / unsigned / signing error)
+   ============================================================ */
+.claim-doc-status {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--color-sf-border-primary);
+  border-radius: var(--sf-radius-md);
+  background: var(--color-sf-bg-surface-muted);
+}
+.claim-doc-status__text {
+  font-size: 12px;
+  line-height: 1.45;
+  color: var(--color-sf-fg-secondary);
+}
+.claim-doc-status--error {
+  border-color: var(--color-sf-bg-danger-primary);
+}
+.claim-doc-status--error .claim-doc-status__text {
+  color: var(--color-sf-fg-danger-primary);
+}
+
+/* ============================================================
+   Page header (compact SaaS title row)
+   ============================================================ */
+.page-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 4px 0 0;
+}
+.page-header__title {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+.page-header__title h1 {
+  margin: 0;
+  font-size: 22px;
+  font-weight: 600;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: var(--color-sf-fg-primary);
+}
+.page-header__title p {
+  margin: 0;
+  font-size: 13px;
+  line-height: 1.4;
+  color: var(--color-sf-fg-secondary);
+}
+.page-header__actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* ============================================================
+   Theme toggle
+   ============================================================ */
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  width: 40px; height: 40px; border: 0; border-radius: var(--sf-radius-md);
+  background: transparent; color: var(--color-sf-fg-secondary);
+  cursor: pointer; transition: background-color 120ms ease, color 120ms ease;
+}
+.theme-toggle:hover { background: var(--color-sf-bg-surface-hover); color: var(--color-sf-fg-primary); }
+
+/* ============================================================
+   Syncfusion Grid polish — keep column dividers crisp, header tone, row hover.
+   ============================================================ */
+.e-grid .e-headercell {
+  background-color: var(--color-sf-bg-surface-muted) !important;
+  font-weight: 600;
+  letter-spacing: -0.005em;
+}
+.e-grid .e-row:hover .e-rowcell { background-color: var(--color-sf-bg-surface-muted) !important; }
+.e-grid .e-rowcell { border-bottom: 1px solid var(--color-sf-border-secondary) !important; }
+
+/* ============================================================
+   Claim List — Case ID link. Looks like a quiet link, hovers like an inline-link action.
+   ============================================================ */
+.claim-id-link {
+  color: var(--color-sf-fg-brand-primary);
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: -0.005em;
+  border-radius: var(--sf-radius-xs);
+  padding: 1px 4px;
+  margin: -1px -4px;
+  transition: background-color 120ms ease, color 120ms ease;
+}
+.claim-id-link:hover {
+  background: var(--color-sf-bg-surface-hover);
+  color: var(--color-sf-fg-brand-primary);
+  text-decoration: underline;
+}
+.claim-id-link:focus-visible {
+  outline: 2px solid var(--color-sf-fg-brand-primary);
+  outline-offset: 2px;
+}
+
+/* ============================================================
+   Claim Detail — document viewer overlay (opened from a button)
+
+   The generated PDF is shown as the document itself: a fixed, full-viewport
+   overlay with no card chrome, no header bar and no outer scrollbar. The
+   PDF Viewer's own toolbar and page navigation stay intact.
+   ============================================================ */
+.pdf-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  background: var(--color-sf-bg-surface);
+  overflow: hidden;
+}
+.pdf-modal .pdf-viewer-chromeless,
+.pdf-modal .pdf-viewer-chromeless .e-card-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
+  overflow: hidden;
+}
+.pdf-modal .pdf-viewer-chromeless .e-card-content {
+  padding: 0;
+  border: 0;
+  background: transparent;
+}
+.pdf-modal .pdf-viewer-chromeless .e-card-content > div:first-child { flex: 1; }
+
+/* The viewer surface owns the scrolling — the overlay never scrolls. */
+.pdf-modal .e-pdfviewer,
+.pdf-modal .e-pdfviewer .e-pdfviewer-content,
+.pdf-modal .e-pdfviewer .e-pdfviewer-document {
+  overflow: hidden;
+}
+
+/* Floating close control — deliberately minimal so the document stays the only content. */
+.pdf-modal__actions {
+  position: absolute;
+  top: 12px;
+  right: 12px;
+  z-index: 20;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.pdf-modal__action {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 12px;
+  border: 1px solid var(--app-card-border);
+  border-radius: var(--sf-radius-md);
+  background: var(--color-sf-bg-surface);
+  color: var(--color-sf-fg-primary);
+  font-size: 13px;
+  font-weight: 500;
+  box-shadow: 0 2px 8px rgb(15 23 42 / 18%);
+  cursor: pointer;
+}
+.pdf-modal__action:hover { background: var(--color-sf-bg-surface-hover); }
+.pdf-modal__action:focus-visible {
+  outline: 2px solid var(--color-sf-fg-brand-primary);
+  outline-offset: 2px;
+}
+.pdf-modal__close {
+  position: static;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 34px;
+  height: 34px;
+  padding: 0;
+  border: 1px solid var(--app-card-border);
+  border-radius: 50%;
+  background: var(--color-sf-bg-surface);
+  color: var(--color-sf-fg-primary);
+  box-shadow: 0 2px 8px rgb(15 23 42 / 18%);
+  cursor: pointer;
+}
+.pdf-modal__close:hover { background: var(--color-sf-bg-surface-hover); }
+.pdf-modal__close:focus-visible {
+  outline: 2px solid var(--color-sf-fg-brand-primary);
+  outline-offset: 2px;
+}
+@media (max-width: 719px) {
+  .pdf-modal__actions { top: 8px; right: 8px; }
+  .pdf-modal__action span { display: none; }
+  .pdf-modal__action { width: 34px; padding: 0; justify-content: center; }
+}
+
+/* ============================================================
+   Form inputs — sharp 2px ring on focus with card-colored offset
+   ============================================================ */
+.e-input-group.e-control-wrapper,
+.e-float-input.e-control-wrapper {
+  border-radius: var(--sf-radius-md);
+}
+
+/* ============================================================
+   Syncfusion DateRangePicker — the Tailwind 3 theme caps the preset list at 192px (5 rows);
+   lift it so the dashboard's presets never hide an entry behind a scroll
+   (browser-check, "date presets hidden behind a scroll").
+   ============================================================ */
+.e-daterangepicker.e-popup .e-presets { max-height: none !important; }
+.e-daterangepicker.e-popup .e-presets li { font-size: 13px; }
+
+/* ============================================================
+   Chart surface — compact axis labels, roomy legend.
+   ============================================================ */
+.e-chart text[id$="_AxisLabel_0"],
+.e-chart text[id*="_AxisTitle_"] {
+  font-size: 12px;
+  font-weight: 500;
+}
+.e-accumulationchart .e-legend,
+.e-chart .e-legend {
+  padding: 12px 16px;
+}
+
+/* ============================================================
+   Map — framed tile layer with a legend column beside it
+   ============================================================ */
+.map-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 208px;
+  gap: 20px;
+  align-items: start;
+  /* The theme centres `.e-card > *`; the layout must still fill the card's content box. */
+  width: 100%;
+  justify-self: stretch;
+}
+@media (max-width: 1023px) {
+  .map-layout { grid-template-columns: minmax(0, 1fr); }
+}
+.map-legend {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid var(--color-sf-border-primary);
+  border-radius: var(--sf-radius-md);
+  background: var(--color-sf-bg-surface-muted);
+}
+.map-legend__title {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--color-sf-fg-secondary);
+}
+.map-legend__list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+  font-size: 12px;
+  color: var(--color-sf-fg-primary);
+  line-height: 1.4;
+}
+.map-legend__list li { display: flex; align-items: center; gap: 8px; }
+.map-legend__shape { flex: 0 0 10px; width: 10px; height: 10px; background: var(--color-sf-fg-info-primary); }
+.map-legend__shape--circle { border-radius: 50%; }
+.map-legend__shape--diamond { border-radius: 2px; transform: rotate(45deg); background: var(--color-sf-fg-warning-primary); }
+.map-legend__shape--triangle {
+  width: 0; height: 0; background: none;
+  border-left: 5px solid transparent; border-right: 5px solid transparent;
+  border-bottom: 9px solid var(--color-sf-fg-neutral-primary);
+}
+.map-legend__shape--cluster { border-radius: 50%; background: var(--color-sf-fg-neutral-primary); }
+.map-legend__list--cities li { justify-content: space-between; gap: 12px; }
+.map-legend__city { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.map-legend__value { color: var(--color-sf-fg-secondary); font-variant-numeric: tabular-nums; white-space: nowrap; }
+.map-legend__note {
+  margin: 4px 0 0;
+  font-size: 11px;
+  line-height: 1.45;
+  color: var(--color-sf-fg-secondary);
+}
+
+/* ============================================================
+   Kanban — refined column gaps and header height for enterprise polish
+   ============================================================ */
+.e-kanban .e-kanban-header,
+.e-kanban .e-kanban-content .e-content-cells .e-card-container .e-card {
+  border-radius: var(--sf-radius-md);
+}
+.e-kanban .e-kanban-header {
+  border-top-left-radius: var(--sf-radius-md);
+  border-top-right-radius: var(--sf-radius-md);
+}
+/* The Kanban wraps a custom card template in its own .e-card element. The template
+   draws the full card surface itself (the .claim-card inside it), so the wrapper's
+   border, shadow and padding are removed to avoid a double surface. */
+.e-kanban .e-kanban-content .e-content-cells .e-card-container .e-card {
+  border: 0 !important;
+  box-shadow: none !important;
+  background: transparent !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  min-height: 0 !important;
+  line-height: 1.4;
+  justify-content: flex-start;
+  overflow: visible;
+  /* The template must fit the cell exactly; any extra width pushes the badge row past the
+     card edge and clips the right-hand chips. */
+  width: 100% !important;
+  max-width: 100% !important;
+  box-sizing: border-box;
+}
+/* Kanban's card cell applies theme padding around the template; keep the outer gutter and
+   let the claim-card draw its own inset so chips never reach the clipping edge. */
+.e-kanban .e-kanban-content .e-content-cells .e-card-container {
+  padding: 0 4px 8px 4px;
+  box-sizing: border-box;
+}
+
+/* ============================================================
+   Kanban claim card — enterprise surface
+   ============================================================ */
+.claim-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 12px 14px 13px;
+  border: 1px solid var(--color-sf-border-primary);
+  border-radius: var(--sf-radius-md);
+  background: var(--color-sf-bg-surface);
+  box-shadow: var(--sf-shadow-sm);
+  overflow: hidden;
+  /* The Syncfusion theme's .e-card sets line-height: 36px, min-height: 48px and
+     justify-content: center; the card content is a stack of its own rows, so those
+     are reset here rather than inherited into the text. */
+  line-height: 1.4;
+  min-height: 0;
+  justify-content: flex-start;
+  /* Fill the Kanban card cell without exceeding it — a fixed width makes the badge row
+     overflow the card and clip the right-hand chips. */
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+.claim-card:hover {
+  border-color: var(--color-sf-border-strong);
+  box-shadow: var(--sf-shadow-md);
+}
+/* Severity edge: a 3px tone bar down the leading edge of the card. */
+.claim-card::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto 0 0;
+  width: 3px;
+  background: var(--claim-card-edge, var(--color-sf-border-strong));
+}
+.claim-card--success { --claim-card-edge: var(--color-sf-fg-success-primary); }
+.claim-card--warning { --claim-card-edge: var(--color-sf-fg-warning-primary); }
+.claim-card--danger  { --claim-card-edge: var(--color-sf-fg-danger-primary); }
+.claim-card--info    { --claim-card-edge: var(--color-sf-fg-info-primary); }
+.claim-card--neutral { --claim-card-edge: var(--color-sf-fg-neutral-primary); }
+
+.claim-card__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  min-width: 0;
+}
+.claim-card__id {
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  color: var(--color-sf-fg-tertiary);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.claim-card__badges {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  min-width: 0;
+  flex-shrink: 1;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+/* Priority reads as a solid chip, status as a soft one, so the eye separates them. */
+.claim-card__priority {
+  background: var(--color-sf-bg-neutral-primary);
+  color: var(--color-sf-fg-neutral-primary);
+  text-transform: capitalize;
+}
+.claim-card__priority.claim-card__priority--success { background: var(--color-sf-bg-success-primary); color: var(--color-sf-fg-success-primary); }
+.claim-card__priority.claim-card__priority--warning { background: var(--color-sf-bg-warning-primary); color: var(--color-sf-fg-warning-primary); }
+.claim-card__priority.claim-card__priority--danger  { background: var(--color-sf-bg-danger-primary);  color: var(--color-sf-fg-danger-primary); }
+.claim-card__priority.claim-card__priority--info    { background: var(--color-sf-bg-info-primary);    color: var(--color-sf-fg-info-primary); }
+.claim-card__priority.claim-card__priority--neutral { background: var(--color-sf-bg-neutral-primary); color: var(--color-sf-fg-neutral-primary); }
+
+.claim-card__name {
+  font-size: 14px;
+  font-weight: 600;
+  line-height: 1.35;
+  letter-spacing: -0.01em;
+  color: var(--color-sf-fg-primary);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.claim-card__meta {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 0;
+  font-size: 12px;
+  line-height: 1.4;
+  color: var(--color-sf-fg-secondary);
+}
+.claim-card__amount {
+  font-weight: 600;
+  color: var(--color-sf-fg-primary);
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.claim-card__sep {
+  color: var(--color-sf-fg-tertiary);
+  flex-shrink: 0;
+}
+.claim-card__adjuster {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.claim-card__type {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+  color: var(--color-sf-fg-tertiary);
+}

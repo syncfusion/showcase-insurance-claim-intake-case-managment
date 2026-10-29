@@ -1,0 +1,46 @@
+{
+  "name": "insurance-claims-portal",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "postinstall": "node scripts/copy-pdfviewer-lib.mjs",
+    "predev": "node scripts/copy-pdfviewer-lib.mjs",
+    "prebuild": "node scripts/copy-pdfviewer-lib.mjs",
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "node server.mjs",
+    "check": "tsc --noEmit",
+    "test:browser": "node browser-check.mjs --config browser-check.config.json",
+    "evidence": "node run-evidence.mjs --plan evidence-plan.json"
+  },
+  "dependencies": {
+        "@syncfusion/ej2-pdf": "35.1.42",
+    "@syncfusion/ej2-react-base": "35.1.37",
+        "@syncfusion/ej2-react-buttons": "35.1.37",
+        "@syncfusion/ej2-react-calendars": "35.1.37",
+        "@syncfusion/ej2-react-charts": "35.1.41",
+        "@syncfusion/ej2-react-dropdowns": "35.1.41",
+        "@syncfusion/ej2-react-grids": "35.1.41",
+        "@syncfusion/ej2-react-inputs": "35.1.41",
+        "@syncfusion/ej2-react-interactive-chat": "35.1.37",
+        "@syncfusion/ej2-react-kanban": "35.1.37",
+        "@syncfusion/ej2-react-maps": "35.1.37",
+        "@syncfusion/ej2-react-navigations": "35.1.40",
+        "@syncfusion/ej2-react-pdfviewer": "35.1.37",
+        "@syncfusion/ej2-react-popups": "35.1.37",
+    "lucide-react": "^0.460.0",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.28.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "typescript": "~5.6.3",
+    "vite": "^6.0.0",
+    "@playwright/test": "1.63.0"
+  }
+}
